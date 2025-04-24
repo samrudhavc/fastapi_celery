@@ -12,7 +12,7 @@ Redis acts as the message broker, Celery manages task execution, and FastAPI pro
 ### 1️⃣ Prerequisites
 Ensure the following are installed:
 - **Python 3.9+**
-- **Docker** (for Redis)
+- **Docker ** (for Redis)
 - **Git** (for version control)
 
 ### 2️⃣ Install Dependencies
@@ -22,4 +22,12 @@ python -m venv venv
 source venv/bin/activate  # Mac/Linux
 venv\Scripts\activate     # Windows
 
-pip install fastapi uvicorn celery redis
+pip install requirements.txt
+1.	Start Redis in Docker:
+docker run -d -p 6379:6379 --name redis_container redis 
+2.	Start the Celery Worker:
+celery -A celery_app worker --loglevel=info 
+3.	Start the FastAPI App:
+uvicorn main:app --reload 
+4.	Trigger and monitor tasks via the API.
+ 
