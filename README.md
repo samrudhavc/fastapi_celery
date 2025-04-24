@@ -31,4 +31,7 @@ celery -A celery_app worker --loglevel=info
 3.	Start the FastAPI App:
 uvicorn main:app --reload 
 4.	Trigger and monitor tasks via the API.
+API can be tested using Postman
+
+
  
