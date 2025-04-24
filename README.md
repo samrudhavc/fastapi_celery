@@ -24,6 +24,7 @@ venv\Scripts\activate     # Windows
 
 pip install requirements.txt
 1.	Start Redis in Docker:
+Pull docker image for Redis
 docker run -d -p 6379:6379 --name redis_container redis 
 2.	Start the Celery Worker:
 celery -A celery_app worker --loglevel=info 
